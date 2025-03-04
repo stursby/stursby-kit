@@ -1,4 +1,3 @@
-import { consola } from 'consola'
 import { getMigrations } from 'better-auth/db'
 
 export default defineNitroPlugin(() => {
@@ -13,18 +12,18 @@ export default defineNitroPlugin(() => {
     if (!toBeCreated.length && !toBeAdded.length) {
       return
     }
-    consola.info(
+    console.log(
       `[better-auth] Database migrations will affect the following tables:`
     )
 
     for (const table of [...toBeCreated, ...toBeAdded]) {
-      consola.log(
+      console.log(
         `\`${table.table}\` table with ${Object.keys(table.fields)
           .map(f => `\`${f}\``)
           .join(', ')} fields.`
       )
     }
     await runMigrations()
-    consola.success('[better-auth] Database migrations ran successfully')
+    console.log('[better-auth] Database migrations ran successfully')
   })
 })
