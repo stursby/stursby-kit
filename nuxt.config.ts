@@ -1,4 +1,5 @@
-import './env'
+// TODO: Fix this in CI
+// import './env'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
